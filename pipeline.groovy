@@ -8,7 +8,7 @@ pipeline {
             steps {
                 cleanWs()
                 sh 'echo ${bundle_name}'
-                git credentialsId: "git_hub_ssh", url: "git@github.com:XYZ/dss_pipeline.git"
+                git branch: "main", credentialsId: "git_hub_ssh", url: "git@github.com:XYZ/dss_pipeline.git"
                 sh "cat requirements.txt"
                 withPythonEnv('python3') {
                     sh "pip install -U pip"
